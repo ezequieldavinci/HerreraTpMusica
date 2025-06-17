@@ -1,0 +1,153 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Russo One', sans-serif;
+    background: url("fondo.jpg") no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    text-shadow: 1px 1px 4px black;
+  }
+  
+  .banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  .logo {
+    height: 50px;
+  }
+  
+  .menu-icon img {
+    width: 35px;
+    cursor: pointer;
+  }
+  
+  #menu-toggle {
+    display: none;
+  }
+  
+  .menu-desplegable {
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 30px;
+    background-color: rgba(0, 0, 0, 0.95);
+    padding: 15px;
+    border-radius: 5px;
+  }
+  
+  .menu-desplegable ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .menu-desplegable a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+  }
+  
+  #menu-toggle:checked + .menu-icon + .menu-desplegable {
+    display: block;
+  }
+  
+  .contenido {
+    padding: 30px;
+    max-width: 900px;
+    margin: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+  }
+  
+  .seccion {
+    margin-bottom: 50px;
+  }
+  
+  .seccion h1,
+  .seccion h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #d32f2f;
+    padding-bottom: 10px;
+  }
+  
+  .botones {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  button {
+    background-color: rgba(211, 47, 47, 0.9);
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+    box-shadow: 1px 1px 4px black;
+  }
+  
+  button:hover {
+    background-color: rgba(163, 0, 0, 0.9);
+    transform: scale(1.05);
+  }
+  
+  .descripcion p {
+    font-size: 20px;
+    max-width: 700px;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .imagenes {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .imagenes img {
+    width: calc(50% - 10px);
+    border-radius: 10px;
+    box-shadow: 2px 2px 8px black;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  
+  .imagenes img:hover {
+    transform: scale(1.05);
+  }
+  
+  #lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 9999;
+  }
+  
+  #lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+  }
+  
