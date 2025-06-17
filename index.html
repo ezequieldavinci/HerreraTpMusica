@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Oktubre - Los Redondos</title>
+  <link rel="stylesheet" href="estilos.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="banner">
+    <img src="logo.png" alt="Logo Indio Solari" class="logo">
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle" class="menu-icon">
+      <img src="hamburguesa.png" alt="Menú">
+    </label>
+    <nav class="menu-desplegable">
+      <ul>
+        <li><a href="https://www.instagram.com/indiosolarioficial/" target="_blank">Instagram</a></li>
+        <li><a href="https://www.youtube.com/channel/UCzq3uuDGcV7U3l39tqRMwhA" target="_blank">YouTube</a></li>
+        <li><a href="https://open.spotify.com/intl-es/album/0TmPRZoau8M0QIfnMgwrlI" target="_blank">Spotify</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="contenido">
+    <section class="seccion canciones">
+      <h1>Oktubre</h1>
+      <p>Las 5 canciones más escuchadas del álbum:</p>
+      <div class="botones">
+        <button onclick="toggleAudio('audio1')">Fuegos de Oktubre</button>
+        <button onclick="toggleAudio('audio2')">Preso en mi ciudad</button>
+        <button onclick="toggleAudio('audio3')">Motor Psico</button>
+        <button onclick="toggleAudio('audio4')">Ji ji ji</button>
+        <button onclick="toggleAudio('audio5')">Canción para naufragios</button>
+      </div>
+      <audio id="audio1" src="fuegosdeoktubre.mp3"></audio>
+      <audio id="audio2" src="presoenmiciudad.mp3"></audio>
+      <audio id="audio3" src="motorpsico.mp3"></audio>
+      <audio id="audio4" src="jijiji.mp3"></audio>
+      <audio id="audio5" src="cancionparanaufragios.mp3"></audio>
+    </section>
+
+    <section class="seccion descripcion">
+      <h2>Sobre el álbum</h2>
+      <p><em>Oktubre</em> es un disco emblemático lanzado en 1986 por Patricio Rey y sus Redonditos de Ricota. Su lírica oscura, la estética post-punk, los sintetizadores intensos y su actitud contracultural lo convirtieron en una obra de culto del rock argentino. El álbum incluye himnos como "Ji ji ji", cuya popularidad traspasó generaciones, y se volvió un ícono de los recitales en vivo del Indio Solari. Además, sus letras están cargadas de crítica social y poesía urbana, fiel al estilo críptico de la banda.</p>
+    </section>
+
+    <section class="seccion galeria">
+      <h2>Imágenes</h2>
+      <div class="imagenes">
+        <img src="imagen1.avif" alt="imagen1">
+        <img src="imagen2.jpg" alt="imagen2">
+      </div>
+    </section>
+
+    <section class="seccion spotify">
+      <h2>Escucha el disco completo en Spotify</h2>
+      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/0TmPRZoau8M0QIfnMgwrlI" width="100%" height="152" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; Oktubre - Ezequiel Herrera</p>
+  </footer>
+
+  <div id="lightbox" onclick="cerrarLightbox()">
+    <img id="lightbox-img" src="" alt="Imagen ampliada">
+  </div>
+
+  <script>
+    function toggleAudio(id) {
+      const audio = document.getElementById(id);
+      if (audio.paused) {
+        document.querySelectorAll('audio').forEach(el => {
+          if (el.id !== id) el.pause();
+        });
+        audio.play();
+      } else {
+        audio.pause();
+      }
+    }
+
+    document.querySelectorAll('.galeria img').forEach(img => {
+      img.addEventListener('click', () => {
+        document.getElementById('lightbox-img').src = img.src;
+        document.getElementById('lightbox').style.display = 'flex';
+      });
+    });
+
+    function cerrarLightbox() {
+      document.getElementById('lightbox').style.display = 'none';
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === "Escape") {
+        cerrarLightbox();
+      }
+    });
+  </script>
+</body>
+</html>
